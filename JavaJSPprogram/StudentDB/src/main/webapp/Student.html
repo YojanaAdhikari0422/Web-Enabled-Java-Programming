@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Mark Lookup</title>
+    <style>
+        body { font-family: Arial; background: #f4f8fb; text-align: center; padding: 60px; }
+        form { background: white; padding: 20px; display: inline-block; border-radius: 10px;
+               box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input, button { padding: 10px; margin: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { background: #007bff; color: white; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>🎓 Student Mark List</h1>
+    <form action="Student.jsp" method="get">
+        <label for="regno">Enter Register Number:</label><br>
+        <input type="text" name="regno" id="regno" placeholder="e.g., 101" required><br>
+        <button type="submit">Get Mark List</button>
+    </form>
+</body>
+</html>
