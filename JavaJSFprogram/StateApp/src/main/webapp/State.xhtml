@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jakarta.ee/html"
+      xmlns:f="http://xmlns.jakarta.ee/faces">
+<h:head>
+    <title>State Language Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffff99;
+            padding: 40px;
+            margin: 50px auto;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .language-display {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            min-width: 200px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <h:form>
+            <div class="title">Select Your State</div>
+            <h:selectOneMenu value="#{stateBean.selectedState}"
+                             valueChangeListener="#{stateBean.stateChanged}"
+                             onchange="submit()">
+                <f:selectItem itemValue="" itemLabel="-- Select State --" />
+                <f:selectItems value="#{stateBean.stateLanguageMap}" var="state"
+                               itemValue="#{state.key}" itemLabel="#{state.key}" />
+            </h:selectOneMenu>
+
+            <h:panelGroup rendered="#{not empty stateBean.language}">
+                <div class="language-display">
+                    Your language is: <h:outputText value="#{stateBean.language}" />
+                </div>
+            </h:panelGroup>
+        </h:form>
+    </div>
+</h:body>
+</html>
